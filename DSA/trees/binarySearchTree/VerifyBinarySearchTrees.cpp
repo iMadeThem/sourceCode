@@ -1,8 +1,97 @@
-#include <stdio.h>
-#include "../utility/BinaryTree.h"
+#include <iostream>
 #include <limits>
+#include <string>
 
 using namespace std;
+
+struct BinaryTreeNode
+{
+    int                    m_nValue;
+    BinaryTreeNode*        m_pLeft;
+    BinaryTreeNode*        m_pRight;
+    BinaryTreeNode*        m_pParent;
+};
+
+// ==================== Code for Binary Trees ====================
+
+BinaryTreeNode* CreateBinaryTreeNode(int value)
+{
+    BinaryTreeNode* pNode = new BinaryTreeNode();
+    pNode->m_nValue = value;
+    pNode->m_pLeft = NULL;
+    pNode->m_pRight = NULL;
+    pNode->m_pParent = NULL;
+
+    return pNode;
+}
+
+void ConnectTreeNodes(BinaryTreeNode* pParent, BinaryTreeNode* pLeft, BinaryTreeNode* pRight)
+{
+    if(pParent != NULL)
+    {
+        pParent->m_pLeft = pLeft;
+        pParent->m_pRight = pRight;
+
+        if(pLeft != NULL)
+            pLeft->m_pParent = pParent;
+        if(pRight != NULL)
+            pRight->m_pParent = pParent;
+    }
+}
+
+void PrintTreeNode(BinaryTreeNode* pNode)
+{
+    if(pNode != NULL)
+    {
+        cout << "value of this node is: " <<  pNode->m_nValue << endl;
+
+        if(pNode->m_pLeft != NULL)
+            cout << "value of its left child is: " << pNode->m_pLeft->m_nValue << endl;
+        else
+            printf("left child is null.\n");
+
+        if(pNode->m_pRight != NULL)
+            cout << "value of its right child is: " << pNode->m_pRight->m_nValue << endl;
+        else
+            cout << "right child is null." << endl;
+    }
+    else
+    {
+        cout << "this node is null." << endl;
+    }
+
+    cout << endl;
+}
+
+void PrintTree(BinaryTreeNode* pRoot)
+{
+    PrintTreeNode(pRoot);
+
+    if(pRoot != NULL)
+    {
+        if(pRoot->m_pLeft != NULL)
+            PrintTree(pRoot->m_pLeft);
+
+        if(pRoot->m_pRight != NULL)
+            PrintTree(pRoot->m_pRight);
+    }
+}
+
+void DestroyTree(BinaryTreeNode* pRoot)
+{
+    if(pRoot != NULL)
+    {
+        BinaryTreeNode* pLeft = pRoot->m_pLeft;
+        BinaryTreeNode* pRight = pRoot->m_pRight;
+
+        delete pRoot;
+        pRoot = NULL;
+
+        DestroyTree(pLeft);
+        DestroyTree(pRight);
+    }
+}
+
 
 bool isBSTCore_Solution1(BinaryTreeNode* pRoot, int min, int max);
 bool isBSTCore_Solution2(BinaryTreeNode* pRoot, int& prev);
@@ -45,20 +134,20 @@ bool isBSTCore_Solution2(BinaryTreeNode* pRoot, int& prev)
 }
 
 // ==================== Test Code ====================
-void Test(char* testName, BinaryTreeNode* pRoot, bool expected)
+void Test(string testName, BinaryTreeNode* pRoot, bool expected)
 {
-    if(testName != NULL)
-        printf("%s begins: ", testName);
+    if(!testName.empty())
+        cout << testName << " begins: ";
 
     if(isBST_Solution1(pRoot) == expected)
-        printf("Solution 1 Passed; ");
+        cout << "Solution 1 Passed; ";
     else
-        printf("Solution 1 FAILED; ");
+        cout << "Solution 1 FAILED; ";
 
     if(isBST_Solution2(pRoot) == expected)
-        printf("Solution 2 Passed.\n");
+        cout << "Solution 2 Passed.\n";
     else
-        printf("Solution 2 FAILED.\n");
+        cout << "Solution 2 FAILED.\n";
 }
 
 //            8
@@ -227,4 +316,3 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-

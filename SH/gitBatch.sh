@@ -36,6 +36,7 @@ if [ -z "${REPO_ROOT+set}" ]; then
 fi
 
 echo "Inspecting the repository root: $REPO_ROOT"
+cd $REPO_ROOT
 
 start_time=`date +%s`
 

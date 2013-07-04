@@ -1,0 +1,14 @@
+Usage:
+
+1. curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
+  or
+$ cp git-prompt.sh ~/.git-prompt
+
+2. # Load in the git branch prompt script.
+$ emacs ~/.bash_profile
+# add follows
+source ~/.git-prompt.sh
+# full path
+#PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
+# current folder
+PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\W\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "

@@ -1,0 +1,27 @@
+# To be appended to ~/.bash_profile
+
+export CLICOLOR=1
+export LSCOLORS=gxfxaxdxcxegedabagacad
+export ANDROID_HOME=/Users/xxx/android/adt-bundle-mac/sdk
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+
+alias ll='ls -al'
+alias bashprofile-cmd='less ~/.bash_profile'
+alias bashprofile-edit='emacs ~/.bash_profile'
+alias sourcebashprofile='source ~/.bash_profile'
+
+
+.
+.
+.
+
+
+# Near file end
+source ~/.git-prompt.sh
+# colorful promt which will display current branch
+PS1="[\[\033[36m\]\d-\t\[\033[0m\]]\u:\W/\[\033[32m\]\$(__git_ps1)\[\033[0m\]\$ "
+
+# Show full path in the prompt
+#PS1="[\[\033[36m\]\d-\t\[\033[0m\]]\u:\w/\[\033[32m\]\$(__git_ps1)\[\033[0m\]\$ "

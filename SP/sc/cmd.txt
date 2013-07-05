@@ -1,0 +1,2 @@
+# generate a scala project skeleton
+g8 typesafehub/scala-sbt

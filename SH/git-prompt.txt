@@ -8,7 +8,7 @@ $ cp git-prompt.sh ~/.git-prompt
 $ emacs ~/.bash_profile
 # add follows
 source ~/.git-prompt.sh
-# full path
-#PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
 # current folder
-PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\W\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
+PS1="[\[\033[36m\]\d-\t\[\033[0m\]]\u:\W/\[\033[32m\]\$(__git_ps1)\[\033[0m\]\$ "
+# Show full path in the prompt
+#PS1="[\[\033[36m\]\d-\t\[\033[0m\]]\u:\w/\[\033[32m\]\$(__git_ps1)\[\033[0m\]\$ "

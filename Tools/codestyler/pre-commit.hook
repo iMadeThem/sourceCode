@@ -29,12 +29,20 @@ do
 	FILE_EXT="${FILE_PATH##*.}"
 	[ "$FILE_EXT" != 'h' ] &&
     [ "$FILE_EXT" != 'c' ] &&
+    [ "$FILE_EXT" != "cpp" ] &&
+    [ "$FILE_EXT" != "cc" ] &&
     [ "$FILE_EXT" != 'm' ] &&
     [ "$FILE_EXT" != "java" ] && continue
     case $FILE_EXT in
         [hc] ) # C code [.h | .c]
             echo "Formatting C source code..."
 	        "$EXE_PATH" -l C -c "$CONFIG_FILE_C" --no-backup --mtime "$FILE_PATH" 2>&1 || true
+	        rm "${FILE_PATH}.uncrustify" >/dev/null 2>&1 || true
+	        git add "$FILE_PATH"
+            ;;
+        "cpp" | "cc" )
+            echo "Formatting C++ source code..."
+	        "$EXE_PATH" -l C++ -c "$CONFIG_FILE_C" --no-backup --mtime "$FILE_PATH" 2>&1 || true
 	        rm "${FILE_PATH}.uncrustify" >/dev/null 2>&1 || true
 	        git add "$FILE_PATH"
             ;;

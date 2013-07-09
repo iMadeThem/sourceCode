@@ -3,16 +3,15 @@
 
 int main()
 {
-    
+
     pid_t pid;
-    
+
     fprintf(stdout, "%s", "Start fork...");
     //fflush(stdout); // flush the buffer
-    
+
     pid = fork();
-    
-    switch(pid)
-    {
+
+    switch(pid) {
     case -1:
         break;
     case 0:
@@ -21,7 +20,6 @@ int main()
     default:
         printf("%s", "Parent process/\n");
     }
-    
+
     return 0;
-    
 }

@@ -46,7 +46,7 @@ do
 	        rm "${FILE_PATH}.uncrustify" >/dev/null 2>&1 || true
 	        git add "$FILE_PATH"
             ;;
-        [m] ) # Object-C code [.m]
+        [m] | "mm" ) # Object-C code [.m] or [.mm]
             echo "Formatting Object-C source code..."
 	        "$EXE_PATH" -l OC -c "$CONFIG_FILE_OC" --no-backup --mtime "$FILE_PATH" 2>&1 || true
 	        rm "${FILE_PATH}.uncrustify" >/dev/null 2>&1 || true

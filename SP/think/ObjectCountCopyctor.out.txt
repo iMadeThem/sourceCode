@@ -1,0 +1,31 @@
+ObjectCountCopyctor()
+	h: objectCount = 1
+Entering f()
+ObjectCountCopyctor(const ObjectCountCopyctor&)
+	h copy: objectCount = 2
+x argument inside f()
+	h copy: objectCount = 2
+Returning from f()
+ObjectCountCopyctor(const ObjectCountCopyctor&)
+	h copy copy: objectCount = 3
+~ObjectCountCopyctor()
+	h copy: objectCount = 2
+h2 after call to f()
+	h copy copy: objectCount = 2
+Call f(), no return value
+ObjectCountCopyctor(const ObjectCountCopyctor&)
+	h copy: objectCount = 3
+x argument inside f()
+	h copy: objectCount = 3
+Returning from f()
+ObjectCountCopyctor(const ObjectCountCopyctor&)
+	h copy copy: objectCount = 4
+~ObjectCountCopyctor()
+	h copy copy: objectCount = 3
+~ObjectCountCopyctor()
+	h copy: objectCount = 2
+After call to f()
+~ObjectCountCopyctor()
+	h copy copy: objectCount = 1
+~ObjectCountCopyctor()
+	h: objectCount = 0

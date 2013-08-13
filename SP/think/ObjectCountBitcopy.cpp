@@ -1,11 +1,11 @@
 /**
- * ObjectCount.cpp -- Count how many objects exist.
+ * ObjectCountBitcopy.cpp -- Count how many objects exist by bitcopying.
  *
  * Copyright (c) Leon (yong.he1982(at)gmail.com)
  * Date : 2013-08-13 [Tuesday, 225]
  *
  * Build:
- *   g++ ObjectCount.cpp -o ObjectCount
+ *   g++ ObjectCountBitcopy.cpp -o ObjectCountBitcopy
  */
 
 #include <fstream>
@@ -13,12 +13,12 @@
 
 using namespace std;
 
-ofstream out("ObjectCount.out.txt");
+ofstream out("ObjectCountBitcopy.out.txt");
 
-class ObjectCount {
+class ObjectCountBitcopy {
     static int objectCount;
     public:
-        ObjectCount() {
+        ObjectCountBitcopy() {
             objectCount++;
         }
 
@@ -28,16 +28,16 @@ class ObjectCount {
             objectCount << endl;
         }
 
-        ~ObjectCount() {
+        ~ObjectCountBitcopy() {
             objectCount--;
-            print("~ObjectCount()");
+            print("~ObjectCountBitcopy()");
         }
 };
 
-int ObjectCount::objectCount = 0;
+int ObjectCountBitcopy::objectCount = 0;
 
 // Pass and return BY VALUE:
-ObjectCount f(ObjectCount x)
+ObjectCountBitcopy f(ObjectCountBitcopy x)
 {
     x.print("x argument inside f()");
     return x;
@@ -45,18 +45,18 @@ ObjectCount f(ObjectCount x)
 
 int main()
 {
-    ObjectCount h;
-    ObjectCount::print("after construction of h");
-    ObjectCount h2 = f(h);
-    ObjectCount::print("after call to f()");
+    ObjectCountBitcopy h;
+    ObjectCountBitcopy::print("after construction of h");
+    ObjectCountBitcopy h2 = f(h);
+    ObjectCountBitcopy::print("after call to f()");
 } ///:~
 
 /**
  * output:
  * after construction of h: objectCount = 1
  * x argument inside f(): objectCount = 1
- * ~ObjectCount(): objectCount = 0
+ * ~ObjectCountBitcopy(): objectCount = 0
  * after call to f(): objectCount = 0
- * ~ObjectCount(): objectCount = -1
- * ~ObjectCount(): objectCount = -2
+ * ~ObjectCountBitcopy(): objectCount = -1
+ * ~ObjectCountBitcopy(): objectCount = -2
  */

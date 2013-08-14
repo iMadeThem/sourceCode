@@ -78,6 +78,8 @@ int main()
    h copy: objectCount = 2
    Returning from f()
    ObjectCountCopyctor(const ObjectCountCopyctor&)
+   //A previously unconstructed object (h2) is created from an existing object (the
+   //local variable inside f( )), so of course the copy-constructor is used again.
    h copy copy: objectCount = 3
    ~ObjectCountCopyctor()
    h copy: objectCount = 2
@@ -90,9 +92,12 @@ int main()
    h copy: objectCount = 3
    Returning from f()
    ObjectCountCopyctor(const ObjectCountCopyctor&)
+   //return to a temporary object, so~
    h copy copy: objectCount = 4
+   //destructor for local variable
    ~ObjectCountCopyctor()
    h copy copy: objectCount = 3
+   //destructor for temprary object.
    ~ObjectCountCopyctor()
    h copy: objectCount = 2
    After call to f()

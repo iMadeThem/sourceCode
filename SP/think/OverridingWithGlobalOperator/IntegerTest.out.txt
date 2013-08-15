@@ -1,0 +1,67 @@
+Test case 1----------
+c1 = 479, c2 = 9; c1 + c2 produces 488
+c1 = 479, c2 = 9; c1 - c2 produces 470
+c1 = 479, c2 = 9; c1 * c2 produces 4311
+c1 = 479, c2 = 9; c1 / c2 produces 53
+c1 = 479, c2 = 9; c1 % c2 produces 2
+c1 = 479, c2 = 9; c1 ^ c2 produces 470
+c1 = 479, c2 = 9; c1 & c2 produces 9
+c1 = 479, c2 = 9; c1 | c2 produces 479
+c1 = 479, c2 = 9; c1 << c2 produces 245248
+c1 = 479, c2 = 9; c1 >> c2 produces 0
+c1 = 479, c2 = 9; c1 += c2 produces 488
+c1 = 488, c2 = 9; c1 -= c2 produces 479
+c1 = 479, c2 = 9; c1 *= c2 produces 4311
+c1 = 4311, c2 = 9; c1 /= c2 produces 479
+c1 = 479, c2 = 9; c1 %= c2 produces 2
+c1 = 2, c2 = 9; c1 ^= c2 produces 11
+c1 = 11, c2 = 9; c1 &= c2 produces 9
+c1 = 9, c2 = 9; c1 |= c2 produces 9
+c1 = 9, c2 = 9; c1 >>= c2 produces 0
+c1 = 0, c2 = 9; c1 <<= c2 produces 0
+c1 = 0, c2 = 9; c1 < c2produces 1
+c1 = 0, c2 = 9; c1 > c2produces 0
+c1 = 0, c2 = 9; c1 == c2produces 0
+c1 = 0, c2 = 9; c1 != c2produces 1
+c1 = 0, c2 = 9; c1 <= c2produces 1
+c1 = 0, c2 = 9; c1 >= c2produces 0
+c1 = 0, c2 = 9; c1 && c2produces 0
+c1 = 0, c2 = 9; c1 || c2produces 1
+Test case 2----------
+c1 = -5, c2 = -3; c1 + c2 produces -8
+c1 = -5, c2 = -3; c1 - c2 produces -2
+c1 = -5, c2 = -3; c1 * c2 produces 15
+c1 = -5, c2 = -3; c1 / c2 produces 1
+c1 = -5, c2 = -3; c1 % c2 produces -2
+c1 = -5, c2 = -3; c1 ^ c2 produces 6
+c1 = -5, c2 = -3; c1 & c2 produces -7
+c1 = -5, c2 = -3; c1 | c2 produces -1
+c1 = -5, c2 = -3; c1 << c2 produces 6917529027641081856
+c1 = -5, c2 = -3; c1 >> c2 produces -1
+c1 = -5, c2 = -3; c1 += c2 produces -8
+c1 = -8, c2 = -3; c1 -= c2 produces -5
+c1 = -5, c2 = -3; c1 *= c2 produces 15
+c1 = 15, c2 = -3; c1 /= c2 produces -5
+c1 = -5, c2 = -3; c1 %= c2 produces -2
+c1 = -2, c2 = -3; c1 ^= c2 produces 3
+c1 = 3, c2 = -3; c1 &= c2 produces 1
+c1 = 1, c2 = -3; c1 |= c2 produces -3
+c1 = -3, c2 = -3; c1 >>= c2 produces -1
+c1 = -1, c2 = -3; c1 <<= c2 produces -2305843009213693952
+c1 = -2305843009213693952, c2 = -3; c1 < c2produces 1
+c1 = -2305843009213693952, c2 = -3; c1 > c2produces 0
+c1 = -2305843009213693952, c2 = -3; c1 == c2produces 0
+c1 = -2305843009213693952, c2 = -3; c1 != c2produces 1
+c1 = -2305843009213693952, c2 = -3; c1 <= c2produces 1
+c1 = -2305843009213693952, c2 = -3; c1 >= c2produces 0
+c1 = -2305843009213693952, c2 = -3; c1 && c2produces 1
+c1 = -2305843009213693952, c2 = -3; c1 || c2produces 1
+Test case 3----------
+(8 << -0) = 8
+-0 >> 2) = 0
+(8 << -1) = 0
+-1 >> 2) = -1
+(8 << -2) = 0
+-2 >> 2) = -1
+(8 << -3) = 0
+-3 >> 2) = -1

@@ -8,6 +8,8 @@
 #ifndef _HEADER_OSTACK_H_
 #define _HEADER_OSTACK_H_
 
+#include <iostream>
+
 class Object {
     public:
         virtual ~Object() = 0;
@@ -15,7 +17,7 @@ class Object {
 
 // Required definition:
 
-inline Object::~Object() {}
+inline Object::~Object() {std::cout << "~Object()" << std::endl; }
 
 class Stack {
     struct Link {
@@ -28,8 +30,11 @@ class Stack {
         Stack() : head(0) {}
 
         ~Stack() {
-            while(head)
+            std::cout << "~Stack() enter" << std::endl;
+            while(head) {
+                std::cout << "~Stack()" << std::endl;
                 delete pop();
+            }
         }
 
         void push(Object* dat) {

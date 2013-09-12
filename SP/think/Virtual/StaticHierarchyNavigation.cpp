@@ -35,10 +35,24 @@ int main() {
     Square* sp = 0;
     // Static Navigation of class hierarchies
     // requires extra type information:
-    if(typeid(s) == typeid(cp)) // C++ RTTI
+
+    // with RTTI check, static_cast is actually the same as dynamic_cast
+    if(typeid(s) == typeid(cp)) { // C++ RTTI
+        cout << "down casting Shape to Circle" << endl;
         cp = static_cast<Circle*>(s);
-    if(typeid(s) == typeid(sp))
+    }
+    // cp = static_cast<Circle*>(s);  // this works as well
+    cout << "After trying casting Shape to Circle, returned: " << cp << endl;
+    // 0
+
+    if(typeid(s) == typeid(sp)) {
+        cout << "down casting Shape to Square" << endl;
         sp = static_cast<Square*>(s);
+    }
+    // sp = static_cast<Square*>(s); // this works as well
+    cout << "After trying casting Shape to Square, returned: " << sp << endl;
+    // 0
+
     if(cp != 0)
         cout << "It's a circle!" << endl;
     if(sp != 0)
